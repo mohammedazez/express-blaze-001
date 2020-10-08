@@ -17,12 +17,11 @@ module.exports = {
   },
   // Read by id
   getClassById: async (req, res) => {
-    const Class = await ClassRoom.findById(req.params.id);
-
+    const classRooms = await ClassRoom.findById(req.params.id);
     try {
       res.json({
         message: "Sukses mendapatkan data Class berdasarkan ID",
-        Class,
+        classRooms,
       });
     } catch (err) {
       console.log(err);
@@ -31,11 +30,11 @@ module.exports = {
   },
   // Create
   postClass: async (req, res) => {
-    const Class = await ClassRoom.create(req.body);
+    const classRooms = await ClassRoom.create(req.body);
     try {
       res.json({
         message: "Sukses menambahkan data Class",
-        Class,
+        classRooms,
       });
     } catch (error) {
       console.log(error);
@@ -44,11 +43,14 @@ module.exports = {
   },
   // Update by id
   updateClassById: async (req, res) => {
-    const Class = await ClassRoom.findByIdAndUpdate(req.params.id, req.body);
+    const classRooms = await ClassRoom.findByIdAndUpdate(
+      req.params.id,
+      req.body
+    );
     try {
       res.json({
         message: "Sukses update data Class",
-        Class,
+        classRooms,
       });
     } catch (error) {
       console.log(error);

@@ -5,7 +5,7 @@ module.exports = {
   // Read by all
   getAllStudent: (req, res) => {
     Student.find()
-      .populate("class", "name")
+      .populate("class")
       .then((result) => {
         res.status(200).json({
           message: "Sukses mendapatkan data student",
