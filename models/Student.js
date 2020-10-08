@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const StudentSchema = new mongoose.Schema({
   name: {
     type: String,
-    klub: String,
     required: true,
   },
   class: {
