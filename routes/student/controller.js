@@ -2,6 +2,7 @@
 const { Student } = require("../../models");
 
 module.exports = {
+  // Read
   getAllStudent: (req, res) => {
     Student.find()
       .then((result) => {
@@ -13,5 +14,18 @@ module.exports = {
       .catch((error) => {
         res.status(404).json("data tidak ditemukan", error);
       });
+  },
+  // Create
+  postStudent: async (req, res) => {
+    const students = await Student.create(req.body);
+    try {
+      res.json({
+        message: "Sukses menambahkan data student",
+        students,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
   },
 };

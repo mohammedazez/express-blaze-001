@@ -1,13 +1,11 @@
-// Import dotenv untuk .env
-require("dotenv").config();
 // Import mongoose
 const mongoose = require("mongoose");
 
-// Import .env
-const URI = process.env.DB_LIVE || "mongodb://localhost/school";
+// Import environment dan file .env
+const { MONGODB_URI_LIVE } = require("./environment");
 
 // Konekan URI
-mongoose.connect(URI, {
+mongoose.connect(MONGODB_URI_LIVE, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
