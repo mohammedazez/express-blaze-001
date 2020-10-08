@@ -11,6 +11,7 @@ const { database } = require("./config");
 //   import router
 const indexRouter = require("./routes/index");
 const studentRouter = require("./routes/student");
+const classRouter = require("./routes/classRoom");
 const app = express();
 
 console.log("Mongodb uri live", MONGODB_URI_LIVE);
@@ -26,6 +27,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 // untuk mengambil data student
 app.use("/student", studentRouter);
+// untuk mengambil data class
+app.use("/class", classRouter);
 
 // Cek koneksi database.js dbmongo
 if (database) {

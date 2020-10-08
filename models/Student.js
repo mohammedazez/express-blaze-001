@@ -8,8 +8,8 @@ const StudentSchema = new mongoose.Schema({
     required: true,
   },
   class: {
-    Teacher: String,
-    floor: Number,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "class-room",
   },
 });
 
